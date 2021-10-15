@@ -16,7 +16,6 @@ function AddVehicle() {
 
     function submit(e) {
         e.preventDefault();
-        //console.log("token", token)
         Axios.post(url, {
             saccoName: data.saccoName,
             vehicleRegNo: data.vehicleRegNo,
