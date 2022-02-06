@@ -22,6 +22,7 @@ function AddVehicle() {
             routeCost: data.routeCost,
             headers: {
                 authorization: `Bearer ${token}`
+
             }
 
         })

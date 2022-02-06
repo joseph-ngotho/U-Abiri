@@ -10,6 +10,7 @@ import AddVehicle from './forms/addVehicle';
 import editRoute from './forms/editRoute';
 import Login from "./forms/login";
 import PrivateRoute from "./Utils/privateRoute";
+import PublicRoute from "./Utils/publicRoute";
 import { getToken, removeUserSession, setUserSession } from './Utils/common'
 
 function App() {

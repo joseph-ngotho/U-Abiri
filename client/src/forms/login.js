@@ -20,16 +20,11 @@ function Login(props) {
         axios.post('http://localhost:9000/systemUser/login', {
             email: email.value,
             password: password.value,
-            headers: {
-                Authorization: 'Bearer ${token}'
-            }
 
         }).then(response => {
             setLoading(false);
             setUserSession(response.data.token);
             props.history.push('/index');
-
-
 
         }).catch(error => {
             setLoading(false);
@@ -37,6 +32,7 @@ function Login(props) {
             else setError("Something went wrong. Please try again later.");
         });
     }
+
 
 
     return (
