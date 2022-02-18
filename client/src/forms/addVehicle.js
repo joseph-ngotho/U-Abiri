@@ -16,11 +16,12 @@ function AddVehicle() {
 
     function submit(e) {
         e.preventDefault();
+        console.log("Token", token);
         Axios.post(url, {
             saccoName: data.saccoName,
             vehicleRegNo: data.vehicleRegNo,
             routeCost: data.routeCost,
-            headers: {
+           headers: {
                 authorization: `Bearer ${token}`
 
             }
