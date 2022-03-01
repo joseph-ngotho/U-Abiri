@@ -13,10 +13,11 @@ function AddVehicle() {
         routeCost: ""
     })
     const [token, setToken] = useState(getToken())
+    const [message, setMessage] = useState("")
 
     function submit(e) {
         e.preventDefault();
-        console.log("Token", token);
+        
         Axios.post(url, {
             saccoName: data.saccoName,
             vehicleRegNo: data.vehicleRegNo,
@@ -28,8 +29,13 @@ function AddVehicle() {
 
         })
             .then(res => {
-                console.log(res.data)
-            })
+                console.log(res.data);
+                setMessage(res.data.message)
+                console.log(message)
+                
+            }).catch(error=>
+            console.log("this",error)
+            )
     }
 
     function handle(e) {
@@ -41,7 +47,7 @@ function AddVehicle() {
 
     return (
         <>
-
+            <span>{!message ? "" : message}</span>
             <StyledForm onSubmit={(e) => submit(e)}>
                 <input type="text" name="saccoName" placeholder="Sacco Name:" onChange={(e) => handle(e)} id="saccoName" value={data.saccoName} />
                 <input type="text" name="vehicleRegNo" placeholder="Vehicle Registration No:" onChange={(e) => handle(e)} id="vehicleRegNo" value={data.vehicleRegNo} />
